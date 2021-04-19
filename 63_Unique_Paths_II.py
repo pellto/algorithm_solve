@@ -1,4 +1,8 @@
 class Solution:
+    """
+    Runtime : 88ms, faster than 5.20%
+    Memory  : 14.3MB, less than 83.53%
+    """
     def uniquePathsWithObstacles(self, obstacleGrid):
         if obstacleGrid[0][0] == 1 or obstacleGrid[-1][-1] == 1:
             return 0
@@ -31,4 +35,3 @@ if __name__=="__main__":
     print(Solution().uniquePathsWithObstacles([[0,1], [0,0]])) # 1
     print(Solution().uniquePathsWithObstacles([[1]])) # 0
     print(Solution().uniquePathsWithObstacles([[0, 0], [0, 1]])) # 0
-    
