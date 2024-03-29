@@ -11,10 +11,8 @@ class TreeNode:
 
 class Solution:
     def isSameTree(self, p: Optional[TreeNode], q: Optional[TreeNode]) -> bool:
-        p_travasal = self.inorderTraversal(p)
-        q_travasal = self.inorderTraversal(q)
-        # print("p_travasal >> ", p_travasal)
-        # print("q_travasal >> ", q_travasal)
+        p_travasal = self.traversal(p)
+        q_travasal = self.traversal(q)
         if len(p_travasal) != len(q_travasal):
             return False
         for pv, qv in zip(p_travasal, q_travasal):
@@ -22,14 +20,10 @@ class Solution:
                 return False
         return True
 
-    def inorderTraversal(self, p: Optional[TreeNode]) -> List[int]:
+    def traversal(self, p: Optional[TreeNode]) -> List[int]:
         if not p:
             return [10**4 + 1]
-        return (
-            [p.val]
-            + self.inorderTraversal(p.left)
-            + self.inorderTraversal(p.right)
-        )
+        return [p.val] + self.traversal(p.left) + self.traversal(p.right)
 
 
 if __name__ == "__main__":
