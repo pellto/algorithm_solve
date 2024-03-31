@@ -3,15 +3,11 @@ from typing import List
 
 
 class TwoSum:
-    arr: List[int] = []
-    sums: set = set()
-
     def __init__(self):
-        return
+        self.arr: List[int] = []
+        self.sums: set = set()
 
     def add(self, number: int) -> None:
-        if len(self.arr) == 0:
-            self.sums.add(number)
         for num in self.arr:
             self.sums.add(num + number)
         self.arr.append(number)
@@ -30,7 +26,7 @@ if __name__ == "__main__":
     s = TwoSum()
     inputs = ["TwoSum", "add", "add", "find"]
     nums = [[], [1], [2], [1]]
-    outputs = [None, None, None, True]
+    outputs = [None, None, None, False]
     real = []
     for idx, _input in enumerate(inputs):
         if _input == "TwoSum":
